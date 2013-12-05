@@ -11,9 +11,9 @@ module Marginalia
         if instrumented_class.method_defined? :execute
           alias_method :execute_without_marginalia, :execute
           alias_method :execute, :execute_with_marginalia
-        end
-
-        if instrumented_class.method_defined? :exec_query
+#        end
+#        if instrumented_class.method_defined? :exec_query
+        elsif instrumented_class.method_defined? :exec_query
           alias_method :exec_query_without_marginalia, :exec_query
           alias_method :exec_query, :exec_query_with_marginalia
         end
